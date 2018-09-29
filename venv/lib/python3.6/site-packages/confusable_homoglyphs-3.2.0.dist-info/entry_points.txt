@@ -1,0 +1,3 @@
+[console_scripts]
+confusable_homoglyphs = confusable_homoglyphs.cli:cli
+

@@ -1,0 +1,217 @@
+Metadata-Version: 2.0
+Name: django-tinymce
+Version: 2.7.0
+Summary: A Django application that contains a widget to render a form field as a TinyMCE editor.
+Home-page: https://github.com/aljosa/django-tinymce
+Author: Aljosa Mohorovic
+Author-email: aljosa.mohorovic@gmail.com
+License: MIT License
+Description-Content-Type: UNKNOWN
+Keywords: django widget tinymce
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+django-tinymce
+==============
+
+**django-tinymce** is a Django application that contains a widget to render a form field as a TinyMCE editor.
+
+.. image:: https://img.shields.io/pypi/v/django-tinymce.svg
+        :target: https://pypi.python.org/pypi/django-tinymce
+
+.. image:: https://img.shields.io/pypi/pyversions/django-tinymce.svg
+        :target: https://pypi.python.org/pypi/django-tinymce
+
+.. image:: https://img.shields.io/pypi/dm/django-tinymce.svg
+        :target: https://pypi.python.org/pypi/django-tinymce
+
+.. image:: https://img.shields.io/travis/aljosa/django-tinymce.svg
+        :target: https://travis-ci.org/aljosa/django-tinymce
+
+.. image:: https://img.shields.io/coveralls/aljosa/django-tinymce.svg
+        :target: https://coveralls.io/github/aljosa/django-tinymce
+
+Quickstart
+==========
+
+Install django-tinymce:
+
+.. code-block::
+
+    $ pip install django-tinymce
+
+Add tinymce to INSTALLED_APPS in settings.py for your project:
+
+.. code-block::
+
+    INSTALLED_APPS = (
+        ...
+        'tinymce',
+    )
+
+Add tinymce.urls to urls.py for your project:
+
+.. code-block::
+
+    urlpatterns = [
+        ...
+        url(r'^tinymce/', include('tinymce.urls')),
+    ]
+
+In your code:
+
+.. code-block::
+
+    from django.db import models
+    from tinymce.models import HTMLField
+
+    class MyModel(models.Model):
+        ...
+        content = HTMLField()
+
+**django-tinymce** uses staticfiles so everything should work as expected, different use cases (like using widget instead of HTMLField) and other stuff is available in documentation.
+
+Releases
+===================
+
+Latest release is 2.6.0. It supports python 2.7, 3.4, 3.5 and Django >= 1.7.
+Previous releases can be found on github, but they are no longer maintained.
+
+Documentation
+=============
+
+http://django-tinymce.readthedocs.org/
+
+Support and updates
+===================
+
+Use github issues https://github.com/aljosa/django-tinymce/issues
+
+License
+=======
+
+Originally written by Joost Cassee.
+
+This program is licensed under the MIT License (see LICENSE.txt)
+
+
+Changelog
+#########
+
+This document describes changes between each past release.
+
+
+2.7.0 (2017-12-19)
+==================
+
+- Drop support for Django 1.7, 1.8, 1.9 and 1.10.
+- Django 1.11 is still supported but issues a deprecation warning.
+- Add support for Django 2.0
+- Added INCLUDE_JQUERY setting to decide whether TinyMCE.media should include
+  a jQuery release (#190).
+
+
+2.6.0 (2017-01-23)
+==================
+
+- Avoid deprecation warning with django.core.urlresolvers (#188)
+- Fixed a client-side validation issue when the TinyMCE widget has the HTML
+  required attribute set (#187).
+- Fixed a crash when no languages are activated (#175).
+
+
+2.5.0 (2017-01-23)
+==================
+
+- Added compatibility for Django 1.11.
+- Dropped support for Django 1.6.
+
+
+2.4.0 (2016-08-31)
+==================
+
+- Added compatibility for Django 1.10.
+- Fix JQuery Problem with grappelli
+- Fix Python 3 compatibility (#170)
+- Improve documentation (#163, #171)
+- Cleaned Imports (#182)
+- Fix TinyMCE Widget for ModelTranslation tabs (#174)
+- Fix JSON mimetype (#186)
+
+
+2.3.0 (2016-03-10)
+==================
+
+- Added tests (#149)
+- Improved Python3 support
+
+
+2.2.0 (2015-12-23)
+==================
+
+- TinyMCE compressor now use staticfiles to get the file content (and
+  to find files that are in multiple static directory.) (#142)
+
+
+2.1.0 (2015-12-23)
+==================
+
+- Rewrite URL files to let it works with Django 1.9 (#147, #148)
+- Add a CONTRIBUTORS file.
+
+
+2.0.6 (2015-11-12)
+==================
+
+- Make sure jQuery is loaded both in the admin and for non-admin forms. (#141)
+
+
+2.0.5 (2015-09-09)
+==================
+
+- Use static finders for development mode. (#131)
+
+
+2.0.4 (2015-08-07)
+==================
+
+- Fix non-admin jQuery.
+
+
+2.0.3 (2015-08-06)
+==================
+
+- Handle non-admin jQuery. (#108)
+
+
+2.0.2 (2015-07-26)
+==================
+
+- Add Python3 support.
+
+
+2.0.1 (2015-07-24)
+==================
+
+- Fix missing CHANGELOG.
+
+
+2.0.0 (2015-07-23)
+==================
+
+* Starts supporting Django 1.8
+
+
