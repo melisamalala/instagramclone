@@ -1,10 +1,10 @@
 ## GALLERY
-A Gallery portfolio whereby a user can clicks on a picture, views it on a modal and can copy the link to the picture
+An Instagram clone website.
 
 # Getting Started.
 These instructions will get you a copy of the project up and running on a local host.
 
-Step 1: git clone https://github.com/BenkiKuu/djangoip1
+Step 1: git clone
 Step 2: Enter the Project root folder
 
 cd gallery/
@@ -41,10 +41,9 @@ fork the project and make a pull request.
 
 ## Authors
 MELISSA MALALA
-Twing-It Analytics
 
-##License
+## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-##Acknowledgments
+## Acknowledgments
 Moringa School
