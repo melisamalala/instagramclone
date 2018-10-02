@@ -3,11 +3,19 @@ from django.db import models
 # Create your models here.
 import datetime as dt
 
+class User(models.Model):
+    photo=models.ImageField()
+    bio=models.TextField()
+
+
+
+
 class Image(models.Model):
     image=models.ImageField(upload_to='picture/')
     name = models.CharField(max_length=40)
     description=models.TextField()
-
+    user=models.ForeignKey(User, blank=True)
+    likes=models.IntegerField(blank=True)
 
 
 
