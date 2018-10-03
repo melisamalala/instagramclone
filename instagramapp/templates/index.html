@@ -7,7 +7,7 @@
 
 <div class="jumbotron text-center" style="background-color:black;">
 
-<h1 class="h1" style="font-family: 'Abril Fatface', cursive; color:white;font-size:70px;">The Image Gallery </h1>
+<h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:white;font-size:70px;">Instagram</h1>
 
 <p style="font-family: 'Kodchasan', sans-serif;color:white;">The delicate balance of mentoring someone is not creating them in your own image, but giving them the opportunity to create themselves.</p>
 
@@ -20,67 +20,15 @@
 <div class="card-columns">
 
     {% for image in pictures %}
-  <div class="card border-secondary">
+  <div class="card border-secondary"><a href="{% url 'image' image.id %}">
    <img src="{{image.image.url}}"
            data-target="#imageModal{{image.id}}" data-toggle="modal"
-           alt="" class="img-fluid" id="eachimage" size="100px200">
+        alt="" class="img-fluid" id="eachimage" size="100px200"></a>
   </div>
      {% endfor %}
 </div>
 </div>
 
-  <!--modal-->
-    {% for image in pictures %}
-      <div class="modal fade" id="imageModal{{image.id}}" tabindex="-1"
-           role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <img src="{{image.image.url}}"
-                   data-toggle="modal" alt="" style="height:600px;width:500px;">
-              <div class="modal-header">
-              <h4 id="modal-text text-center">{{image.name}}</h4>
-                  <h4 style="font-family: 'Kodchasan', sans-serif;color:blue;" id="modal-text ">{{image.location}}</h4>
-                  {% for tag in image.tags.all %}
 
-                <button class="btn btn-lg btn-success"
-                        style="font-family: 'Kodchasan', sans-serif;color:white;"> #{{ tag.name }}</button>
-
-                 {% endfor %}
-            </div>
-
-            <div class="modal-footer">
-
-                <input class="form-control" type="text" value="https://gallerymelissa.herokuapp.com{{image.image.url}}">
-                <button  type="button" value="https://gallerymelissa.herokuapp.com{{image.image.url}}"  onclick="copyLink(this.value)" class="btn btn-outline-secondary my-2 my-sm-0 link-btn">Copy Photo Link</button>
-
-            </div>
-            <div class="modal-footer">
-
-              <h5 id=modal-text>{{image.description}}</h5>
-
-              <button type="button" class="btn btn-outline-secondary
-              my-2 my-sm-0" data-dismiss="modal">Close</button>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-<script>
-
-function copyLink(value) {
-    console.log('sdfgsdfg')
-    function handler(event){
-        event.clipboardData.setData('text/plain', value);
-        event.preventDefault();
-        document.removeEventListener('copy', handler, true);
-    }
-
-    document.addEventListener('copy', handler, true);
-    document.execCommand('copy');
-
-}
-</script>
-    {% endfor %}
 
    {% endblock %}

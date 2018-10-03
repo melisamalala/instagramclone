@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Image,Location,tags
 from django.http  import HttpResponse, Http404
+from django.contrib.auth.decorators import login_required
 
 # Views
 tags = tags.objects.all()
 
+@login_required
 def home_images(request):
     # Display all images here:
 
