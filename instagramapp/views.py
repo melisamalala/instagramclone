@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Image,Location,tags
 from django.http  import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 # Views
 tags = tags.objects.all()
@@ -55,4 +57,9 @@ def image(request, id):
 
     return render(request, 'image.html', {"image": image})
 
+
+def user_list(request):
+    user_list = User.objects.all()
+    context = {'user_list': user_list}
+    return render(request, 'user_list.html', context)
 

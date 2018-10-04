@@ -6,7 +6,8 @@ from django.conf import settings
 urlpatterns=[
     url(r'^$',views.home_images,name='homePage'),
     url(r'^search/', views.search_image, name='search_image'),
-    url(r'^image/(\d+)',views.image,name ='image')
+    url(r'^image/(\d+)',views.image,name ='image'),
+    url(r'^users/', views.user_list, name = 'user_list'),
 ]
 
 

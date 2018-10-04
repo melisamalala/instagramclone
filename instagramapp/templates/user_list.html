@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h2>List Of Users</h2>
+{% endblock %}
+
+{% block content %}
+{% if user_list %}
+<div class="row">
+    {% for user in user_list %}
+    <div class="col-xs-6 col-lg-4">
+        <h4><a href="{% url 'user_list' user.id %}">
+        {{ user.username }}
+        </a></h4>
+        <h5>{{ user.email }} </h5>
+        <h5>Followers (Number)</h5>
+        <h5>Following (Number)</h5>
+
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}
+{% endblock %}

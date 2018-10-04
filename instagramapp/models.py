@@ -1,12 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 import datetime as dt
 
-class User(models.Model):
+class Profile(models.Model):
     username = models.CharField(max_length=20)
     email = models.CharField(max_length=140)
     password = models.CharField(max_length=100)
+    phone_number = models.IntegerField(max_length=100, null=True)
+    avatar=models.ImageField(upload_to='picture/')
+
 
 class Location(models.Model):
     name = models.CharField(max_length=30)
@@ -46,6 +50,7 @@ class Image(models.Model):
     description=models.TextField()
     location=models.ForeignKey(Location, null=True)
     tags=models.ManyToManyField(tags, blank=True)
+
 
     def __str__(self):
         return self.name
