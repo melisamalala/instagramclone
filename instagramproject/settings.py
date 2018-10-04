@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration'
 ]
 
 MIDDLEWARE = [
@@ -104,6 +105,11 @@ WSGI_APPLICATION = 'instagramproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+
+UPLOADCARE = {
+    'pub_key': '3a093d5b5e93b5c4cde5',
+    'secret': '4dd6844c6ce802acc1da',
+}
 
 DATABASES = {
     'default': {

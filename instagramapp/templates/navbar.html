@@ -6,14 +6,40 @@
         <a class="navbar-brand" id="victor" href="{% url 'homePage' %}">Instagram
            </a>
       </div>
+<div class="col-sm-6 col-md-6">
+            {% if user.is_authenticated %}
+            <ul>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                          <span class="caret"></span>
+                      </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="{%url 'homePage'%}">Home</a>
+                  </li>
+                  <li>
+                    <a href="/accounts/password/change">Change Password</a>
+                  </li>
+                  <li>
+                    <a href="/logout">Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            {% else %}
+            <li>
+              <a class='btn btn-default' href="/accounts/login">Login</a>
+            </li>
 
+            {% endif %}
+          </div>
       <!--Dropdown for filtering by location or category-->
 
       <ul class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                  data-toggle="dropdown" aria-haspopup="true"
                  style="font-family: 'Kodchasan', sans-serif;"aria-expanded="false">
-                FILTER BY CATEGORY
+                CATEGORY
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {% for tag in tags %}
@@ -27,7 +53,7 @@
               <a class="nav-link dropdown-toggle" href="#"
                  id="navbarDropdown" role="button" data-toggle="dropdown"
                  style="font-family: 'Kodchasan', sans-serif;" aria-haspopup="true" aria-expanded="false">
-               FILTER BY LOCATION
+               LOCATION
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {% for location in locations %}
@@ -55,5 +81,7 @@
         </form>
       </div>
       <!-- search form end -->
+
+
     </div>
   </nav>

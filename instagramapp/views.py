@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 # Views
 tags = tags.objects.all()
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def home_images(request):
     # Display all images here:
 
