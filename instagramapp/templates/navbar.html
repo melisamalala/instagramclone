@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Charmonman|Kodchasan|Dancing+Script|Spirax" rel="stylesheet">
 
-<nav class="navbar " style="background-color:#13e4af;">
+<nav class="navbar bg-light ">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" id="victor" href="{% url 'homePage' %}">Instagram
@@ -73,9 +73,9 @@
         <form class="navbar-form" role="search" action="{% url 'search_image' %}">
 
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Type Username" name="image">
+            <input type="text" class="form-control mr-sm-4" placeholder="Search User" name="image" >
             <div class="input-group-btn">
-              <button class="btn btn-info" type="submit">Find Users</button>
+              <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Find</button>
             </div>
           </div>
 

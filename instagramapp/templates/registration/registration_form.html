@@ -6,11 +6,16 @@
   <div class="row">
     <!-- Empty div -->
     <div class="col-md-6 mt-5">
-      <img src="{% static 'photos/insta.jpg' %}" style="height:400px;width:450px;" >
+      <img class="thumbnail" src="{% static 'photos/insta.jpg' %}" style="height:400px;width:450px;" >
 
+      <div class="card mt-5" style="width: 28rem;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Have an account already?</h5>
+    <a href="/accounts/login" class="btn btn-primary">Login</a>
+  </div>
+</div>
 
     </div>
-
 
     <div class="col-md-5 mt-5">
       {% if form.errors %}
