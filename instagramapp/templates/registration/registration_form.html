@@ -1,45 +1,44 @@
-{%extends "registration/base.html"%} {% load bootstrap4 %}
-{%load static%}
+{%extends "registration/base.html"%} {% load bootstrap4 %} {%load static%} {% block content %}
 
-{% block content %}
 <div class="container" style="background-color:#fff;">
   <div class="row">
     <!-- Empty div -->
     <div class="col-md-6 mt-5">
-      <img class="thumbnail" src="{% static 'photos/insta.jpg' %}" style="height:400px;width:450px;" >
+      <img class="thumbnail" src="{% static 'photos/insta.jpg' %}" style="height:400px;width:450px;">
 
       <div class="card mt-5" style="width: 28rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title">Have an account already?</h5>
-    <h2 style="color:grey;font-size:10px;">By signing up, you agree to our Terms, Data Policy and Cookies Policy.</h2>
-  <a href="/accounts/login" class="btn btn-primary">Login</a>
-  </div>
-</div>
+        <div class="card-body text-center">
+          <h5 class="card-title">Have an account already?</h5>
+          <h2 style="color:grey;font-size:10px;">By signing up, you agree to our Terms, Data Policy and Cookies Policy.</h2>
+          <a href="/accounts/login" class="btn btn-primary">Login</a>
+        </div>
+      </div>
 
       <div class="card mt-5" style="width: 28rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title">Get the app.</h5>
-    <a href="https://itunes.apple.com/ke/app/instagram/id389801252?mt=8"><img src="{% static 'photos/appstore.png' %}" style="height:70px;width:200px;"></a>
-    <a href="https://play.google.com/store?hl=en"><img src="{% static 'photos/playstore.png' %}" style="height:70px;width:200px;"></a>
-  </div>
-</div>
+        <div class="card-body text-center">
+          <h5 class="card-title">Get the app.</h5>
+          <a href="https://itunes.apple.com/ke/app/instagram/id389801252?mt=8"><img src="{% static 'photos/appstore.png' %}"
+              style="height:70px;width:200px;"></a>
+          <a href="https://play.google.com/store?hl=en"><img src="{% static 'photos/playstore.png' %}" style="height:70px;width:150px;"></a>
+        </div>
+      </div>
 
     </div>
 
     <div class="col-md-5 mt-5">
       {% if form.errors %}
-        <p> Some Information Might be Incorrect </p>
+      <p> Some Information Might be Incorrect </p>
       {% endif %}
-      <div class="card border-primary mb-4" style="max-width:25rem;">
+      <div class="card border-primary mb-4" style="max-width:60rem;">
 
-        <div class="card-header text-center"><h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:blue;font-size:65px;">Instagram</h1>
+        <div class="card-header text-center">
+          <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:blue;font-size:65px;">Instagram</h1>
           <h3 class="text-center" style="color:grey;font-size:15px;">Sign up to see photos and videos from your friends.</h3>
         </div>
-         <div class="card-body text-primary">
+        <div class="card-body text-primary">
 
-          <form  action="/accounts/register/" method="post">
-            {% csrf_token %}
-            {% bootstrap_form form %}
+          <form action="/accounts/register/" method="post">
+            {% csrf_token %} {% bootstrap_form form %}
             <div class="form-group">
               <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
             </div>
@@ -54,7 +53,7 @@
 
     </div>
 
-    </div>
+  </div>
   <br>
   <br>
   <!-- empty div -->
@@ -64,25 +63,25 @@
     <div class="col-md-12">
       <div class="footer text-center">
         <ul id="footer1">
-      <li>ABOUT US</li>
-      <li>SUPPORT</li>
-      <li>PRESS</li>
-      <li>API</li>
-      <li>JOBS</li>
-      <li>PRIVACY</li>
-      <li>TERMS</li>
-      <li>DIRECTORY</li>
-      <li>PROFILES</li>
-      <li>HASHTAGS</li>
-      <li>LANGUAGE</li>
+          <li>ABOUT US</li>
+          <li>SUPPORT</li>
+          <li>PRESS</li>
+          <li>API</li>
+          <li>JOBS</li>
+          <li>PRIVACY</li>
+          <li>TERMS</li>
+          <li>DIRECTORY</li>
+          <li>PROFILES</li>
+          <li>HASHTAGS</li>
+          <li>LANGUAGE</li>
           <br>
 
           <li style="font-size:10px;"> <strong>© 2018 MELISSA MALALA</strong></li>
-          </ul>
+        </ul>
+
+      </div>
 
     </div>
-
   </div>
-</div>
 </div>
 {% endblock %}

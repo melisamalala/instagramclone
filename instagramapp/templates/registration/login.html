@@ -1,26 +1,29 @@
-{%extends "registration/base.html"%}
-{% load bootstrap4 %}
-{% block content %}
-<div class="container">
-  <div class="row">
-    <!-- Empty div -->
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
+{%extends "registration/base.html"%} {% load bootstrap4 %} {% load static %} {% block content %}
+<div class="container" style="background-color:#fff;">
+  <div class="row p-0 m-0">
+    <div class="col-md-6 mt-5">
       {% if form.errors %}
-        <p> Password or Username is incorrect </p>
+      <p> Password or Username is incorrect </p>
       {% endif %}
-      <div class="panel panel-default">
 
-        <div class="panel-heading">
-          <h3 class="text-center" style=" font-family: 'Grand Hotel', cursive;color:blue;font-size:30px;">
-            <br>
-            Sign In</h3>
+      <img class="thumbnail" src="{% static 'photos/insta.jpg' %}" style="height:400px;width:450px;">
+
+
+    </div>
+
+    <div class="col-md-6  mt-5">
+      {% if form.errors %}
+      <p> Some Information Might be Incorrect </p>
+      {% endif %}
+      <div class="card border-primary mb-4" style="max-width:25rem;">
+
+        <div class="card-header text-center">
+          <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:blue;font-size:65px;">Instagram</h1>
+          <h3 class="text-center" style="color:grey;font-size:15px;">Login to see photos and videos from your friends.</h3>
         </div>
-        <div class="panel-body">
-
-          <form  action="/accounts/login/" method="post">
-            {% csrf_token %}
-            {% bootstrap_form form%}
+        <div class="card-body text-primary">
+          <form action="/accounts/login/" method="post">
+            {% csrf_token %} {% bootstrap_form form%}
 
             <div class="form-group">
               <input type="submit" class="btn btn-primary btn-sm" value="Login">
@@ -29,15 +32,73 @@
             <input type="hidden" name="next" value="{{next}}">
 
           </form>
-
         </div>
-
       </div>
 
     </div>
-    <!-- empty div -->
-    <div class="col-md-4"></div>
+
   </div>
+
+
+  <!-- ********************* -->
+
+  <div class="row p-0 m-0">
+    <div class="col-md-6">
+
+      <div class="card mt-5" style="width: 28rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Don't have an account?</h5>
+          <h2 style="color:grey;font-size:10px;">By signing up, you agree to our Terms, Data Policy and Cookies Policy.</h2>
+          <a href="/accounts/register" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mt-5" style="width: 28rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Get the app.</h5>
+          <a href="https://itunes.apple.com/ke/app/instagram/id389801252?mt=8"><img src="{% static 'photos/appstore.png' %}"
+              style="height:70px;width:200px;"></a>
+          <a href="https://play.google.com/store?hl=en"><img src="{% static 'photos/playstore.png' %}" style="height:70px;width:200px;"></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ********************* -->
+</div>
+
+<br>
+<br>
+
+
+<div class="container">
+  <div class="col-md-12">
+    <div class="footer text-center">
+      <ul id="footer1">
+        <li>ABOUT US</li>
+        <li>SUPPORT</li>
+        <li>PRESS</li>
+        <li>API</li>
+        <li>JOBS</li>
+        <li>PRIVACY</li>
+        <li>TERMS</li>
+        <li>DIRECTORY</li>
+        <li>PROFILES</li>
+        <li>HASHTAGS</li>
+        <li>LANGUAGE</li>
+        <br>
+        <li style="font-size:10px;"> <strong>© 2018 MELISSA MALALA</strong></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 </div>
 
 {% endblock %}
