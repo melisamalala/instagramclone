@@ -1,32 +1,29 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <link href="https://fonts.googleapis.com/css?family=Charmonman|Dancing+Script|Kodchasan|Spirax|Abril+Fatface" rel="stylesheet">
 
 <div class="container">
 
-<div class="jumbotron text-center" style="background-color:white;">
+  <div class="jumbotron text-center" style="background-color:white;">
 
-<h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:blue;font-size:70px;">Instagram</h1>
+    <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:blue;font-size:70px;">Instagram</h1>
 
-</div>
+  </div>
 </div>
 
 <!--<input type="hidden" role="uploadcare-uploader" name="my_file" />-->
 
 <div class="container">
 
-<div class="card-columns">
+  <div class="card-columns">
 
     {% for image in pictures %}
-  <div class="card border-secondary"><a href="{% url 'image' image.id %}">
-   <img src="{{image.image.url}}"
-           data-target="#imageModal{{image.id}}" data-toggle="modal"
-        alt="" class="img-fluid" id="eachimage" size="100px200"></a>
+    <div class="card border-secondary"><a href="{% url 'image' image.id %}">
+        <img src="{{image.image.url}}" data-target="#imageModal{{image.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage"
+          size="100px200"></a>
+    </div>
+    {% endfor %}
   </div>
-     {% endfor %}
-</div>
 </div>
 
 
-   {% endblock %}
+{% endblock %}

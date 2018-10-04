@@ -1,88 +1,88 @@
 <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Charmonman|Kodchasan|Dancing+Script|Spirax" rel="stylesheet">
 
 <nav class="navbar bg-light ">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" id="victor" href="{% url 'homePage' %}">Instagram
-           </a>
-      </div>
-<div class="col-sm-6 col-md-6">
-            {% if user.is_authenticated %}
-
-
-                    <li>
-                    <a href="{%url 'homePage'%}">Profile</a>
-                  </li>
-                  <li>
-                    <a href="/accounts/password/change">Change Password</a>
-                  </li>
-
-                  <li>
-                    <a href="/logout">Logout</a>
-                  </li>
-
-            {% else %}
-            <li>
-              <a class='btn btn-default' href="/accounts/login">Login</a>
-            </li>
-
-    <li>
-              <a class='btn btn-default' href="/accounts/register">Register</a>
-            </li>
-
-
-
-            {% endif %}
-          </div>
-      <!--&lt;!&ndash;Dropdown for filtering by location or category&ndash;&gt;-->
-
-      <!--<ul class="nav-item dropdown">-->
-              <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"-->
-                 <!--data-toggle="dropdown" aria-haspopup="true"-->
-                 <!--style="font-family: 'Kodchasan', sans-serif;"aria-expanded="false">-->
-                <!--CATEGORY-->
-              <!--</a>-->
-              <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-                <!--{% for tag in tags %}-->
-                <!--<a class="dropdown-item" style="font-family: 'Kodchasan', sans-serif;" href="/?tags={{tag.id}}">{{tag.name}}</a>-->
-                <!--<div class="dropdown-divider"></div>-->
-                <!--{% endfor %}-->
-              <!--</div>-->
-            <!--</ul>-->
-
-            <!--<ul class="nav-item dropdown">-->
-              <!--<a class="nav-link dropdown-toggle" href="#"-->
-                 <!--id="navbarDropdown" role="button" data-toggle="dropdown"-->
-                 <!--style="font-family: 'Kodchasan', sans-serif;" aria-haspopup="true" aria-expanded="false">-->
-               <!--LOCATION-->
-              <!--</a>-->
-              <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-                <!--{% for location in locations %}-->
-                <!--<a class="dropdown-item" style="font-family: 'Kodchasan', sans-serif;" href="/?location={{location.id}}">{{location.name}}</a>-->
-                <!--<div class="dropdown-divider"></div>-->
-                <!--{% endfor %}-->
-              <!--</div>-->
-            <!--</ul>-->
-
-
-      <!--&lt;!&ndash;end of dropdown for filtering by location or category&ndash;&gt;-->
-
-      <!-- Adding a search form  -->
-      <div class="col-sm-4 col-md-4 navbar-right">
-
-        <form class="navbar-form" role="search" action="{% url 'search_image' %}">
-
-          <div class="input-group">
-            <input type="text" class="form-control mr-sm-4" placeholder="Search User" name="image" >
-            <div class="input-group-btn">
-              <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Find</button>
-            </div>
-          </div>
-
-        </form>
-      </div>
-      <!-- search form end -->
-
-
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" id="victor" href="{% url 'homePage' %}">Instagram
+      </a>
     </div>
-  </nav>
+    <div class="col-sm-6 col-md-6">
+      {% if user.is_authenticated %}
+
+
+      <li>
+        <a href="{%url 'homePage'%}">Profile</a>
+      </li>
+      <li>
+        <a href="/accounts/password/change">Change Password</a>
+      </li>
+
+      <li>
+        <a href="/logout">Logout</a>
+      </li>
+
+      {% else %}
+      <li>
+        <a class='btn btn-default' href="/accounts/login">Login</a>
+      </li>
+
+      <li>
+        <a class='btn btn-default' href="/accounts/register">Register</a>
+      </li>
+
+
+
+      {% endif %}
+    </div>
+    <!--&lt;!&ndash;Dropdown for filtering by location or category&ndash;&gt;-->
+
+    <!--<ul class="nav-item dropdown">-->
+    <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"-->
+    <!--data-toggle="dropdown" aria-haspopup="true"-->
+    <!--style="font-family: 'Kodchasan', sans-serif;"aria-expanded="false">-->
+    <!--CATEGORY-->
+    <!--</a>-->
+    <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+    <!--{% for tag in tags %}-->
+    <!--<a class="dropdown-item" style="font-family: 'Kodchasan', sans-serif;" href="/?tags={{tag.id}}">{{tag.name}}</a>-->
+    <!--<div class="dropdown-divider"></div>-->
+    <!--{% endfor %}-->
+    <!--</div>-->
+    <!--</ul>-->
+
+    <!--<ul class="nav-item dropdown">-->
+    <!--<a class="nav-link dropdown-toggle" href="#"-->
+    <!--id="navbarDropdown" role="button" data-toggle="dropdown"-->
+    <!--style="font-family: 'Kodchasan', sans-serif;" aria-haspopup="true" aria-expanded="false">-->
+    <!--LOCATION-->
+    <!--</a>-->
+    <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+    <!--{% for location in locations %}-->
+    <!--<a class="dropdown-item" style="font-family: 'Kodchasan', sans-serif;" href="/?location={{location.id}}">{{location.name}}</a>-->
+    <!--<div class="dropdown-divider"></div>-->
+    <!--{% endfor %}-->
+    <!--</div>-->
+    <!--</ul>-->
+
+
+    <!--&lt;!&ndash;end of dropdown for filtering by location or category&ndash;&gt;-->
+
+    <!-- Adding a search form  -->
+    <div class="col-sm-4 col-md-4 navbar-right">
+
+      <form class="navbar-form" role="search" action="{% url 'search_image' %}">
+
+        <div class="input-group">
+          <input type="text" class="form-control mr-sm-4" placeholder="Search User" name="image">
+          <div class="input-group-btn">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Find</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <!-- search form end -->
+
+
+  </div>
+</nav>
