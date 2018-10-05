@@ -4,7 +4,7 @@ from django.http  import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-from .forms import NewImageForm
+from .forms import NewImageForm, UpdatebioForm, ReviewForm
 
 # Views
 tags = tags.objects.all()
@@ -81,4 +81,21 @@ def user_list(request):
     user_list = User.objects.all()
     context = {'user_list': user_list}
     return render(request, 'user_list.html', context)
+
+
+@login_required(login_url='/accounts/login/')
+def edit_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = UpdatebioForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = current_user
+            image.save()
+        return redirect('homePage')
+
+    else:
+        form = UpdatebioForm()
+    return render(request, 'registration/edit_profile.html', {"form": form})
+
 

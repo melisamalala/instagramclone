@@ -8,7 +8,8 @@ urlpatterns=[
     url(r'^search/', views.search_image, name='search_image'),
     url(r'^image/(\d+)',views.image,name ='image'),
     url(r'^users/', views.user_list, name = 'user_list'),
-    url(r'^new/image$', views.new_image, name='new_image')
+    url(r'^new/image$', views.new_image, name='new_image'),
+    url(r'^edit/profile$', views.edit_profile, name='edit_profile')
 ]
 
 

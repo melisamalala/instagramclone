@@ -9,7 +9,7 @@ class Profile(models.Model):
         db_table = 'profile'
 
     bio = models.TextField(max_length=200, null=True, blank=True, default="bio")
-    avatar = models.CharField(max_length=255, default="https://imgur.com/jVr43h8.png")
+    profilepic = models.ImageField(upload_to='picture/', null=True, blank=True)
     user=models.OneToOneField(User, on_delete=models.CASCADE, blank=True )
     followers = models.ManyToManyField(User, related_name="followers", blank=True)
     following = models.ManyToManyField(User, related_name="following", blank=True)
