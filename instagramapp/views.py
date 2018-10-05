@@ -99,15 +99,14 @@ def edit_profile(request):
     return render(request, 'registration/edit_profile.html', {"form": form})
 
 
-# @login_required(login_url='/accounts/login/')
-# def profile_page(request):
-#     current_user = request.user
-#
-#     context = {'user_list': user_list}
-#
-#
-#     return render=(request, 'registration/user_imagelist.html', context)
+@login_required(login_url='/accounts/login/')
+def profile_page(request):
+    current_user = request.user
 
+    context = {'user_list': user_list}
+
+
+    return render=(request, 'registration/user_imagelist.html', context)
 
 
 def search_users(request):
