@@ -96,15 +96,13 @@ def edit_profile(request):
     return render(request, 'registration/edit_profile.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
-def individual_profile_page(request):
-
+def individual_profile_page(request, username=None):
+    if not username:
+        username = request.user.username
     # images by user id
-    current_user = request.user
+    images = Image.objects.filter(user_id=username)
 
-    context = {'user_list': user_list}
-
-
-    return render (request, 'registration/user_image_list.html', context)
+    return render (request, 'registration/user_image_list.html', {'images':images, 'username': username})
 
 def search_users(request):
 

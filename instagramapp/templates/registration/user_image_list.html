@@ -1,4 +1,3 @@
-
 {%extends "registration/base.html"%}
 {% load bootstrap4 %} {%load static%}
 {% load staticfiles %}
@@ -6,10 +5,13 @@
 
 <h1> Your Profile Page </h1>
 
-<p>{{profile.bio}}</p>
-display all images _ header of bio information of 1 user
-
-loop through images object
+<h2> Showing Images by {{ user.id }}</h2>
 
 
+{% for image in images %}
+    <div class="card border-secondary"><a href="{% url 'image' image.id %}">
+        <img src="{{image.image.url}}"size="100px200"></a>
+        {%endfor%}
+
+    </div>
 {% endblock %}
