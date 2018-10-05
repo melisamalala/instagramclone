@@ -42,7 +42,6 @@ def image(request, id):
 
     return render(request, 'image.html', {"image": image})
 
-
 @login_required(login_url='/accounts/login/')
 def new_image(request):
     current_user = request.user
@@ -73,9 +72,7 @@ def search_image(request):
             message = "You haven't searched for any image"
             return render(request, 'search.html', {"message": message})
 
-
-
-#         Viewing a single picture
+# Viewing a single picture
 
 def user_list(request):
     user_list = User.objects.all()
@@ -98,16 +95,16 @@ def edit_profile(request):
         form = UpdatebioForm()
     return render(request, 'registration/edit_profile.html', {"form": form})
 
-
 @login_required(login_url='/accounts/login/')
-def profile_page(request):
+def individual_profile_page(request):
+
+    # images by user id
     current_user = request.user
 
     context = {'user_list': user_list}
 
 
-    return render=(request, 'registration/user_imagelist.html', context)
-
+    return render (request, 'registration/user_image_list.html', context)
 
 def search_users(request):
 

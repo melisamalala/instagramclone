@@ -17,7 +17,6 @@ class ReviewForm(forms.ModelForm):
             'comment': Textarea(attrs={'cols': 40, 'rows': 15}),
         }
 
-
 class UpdatebioForm(forms.ModelForm):
     class Meta:
         model = Profile

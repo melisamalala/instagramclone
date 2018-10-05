@@ -9,9 +9,9 @@ urlpatterns=[
     url(r'^image/(\d+)',views.image,name ='image'),
     url(r'^users/', views.user_list, name = 'user_list'),
     url(r'^new/image$', views.new_image, name='new_image'),
-    url(r'^edit/profile$', views.edit_profile, name='edit_profile')
+    url(r'^edit/profile$', views.edit_profile, name='edit_profile'),
+    url(r'^profile/(?P<profile_id>[0-9]+)$', views.individual_profile_page, name='individual_profile_page')
 ]
-
 
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
