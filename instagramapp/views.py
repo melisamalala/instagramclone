@@ -4,6 +4,7 @@ from django.http  import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from .forms import NewImageForm
 
 # Views
 tags = tags.objects.all()
@@ -32,6 +33,31 @@ def home_images(request):
                                           'tags': tags,
                                           'pictures':pictures})
 
+def image(request, id):
+    try:
+        image = Image.objects.get(pk = id)
+
+    except DoesNotExist:
+        raise Http404()
+
+    return render(request, 'image.html', {"image": image})
+
+
+@login_required(login_url='/accounts/login/')
+def new_image(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = current_user
+            image.save()
+        return redirect('homePage')
+
+    else:
+        form = NewImageForm()
+    return render(request, 'registration/new_image.html', {"form": form})
+
 # Search for an image
 def search_image(request):
 
@@ -48,14 +74,7 @@ def search_image(request):
             return render(request, 'search.html', {"message": message})
 
 #         Viewing a single picture
-def image(request, id):
-    try:
-        image = Image.objects.get(pk = id)
 
-    except DoesNotExist:
-        raise Http404()
-
-    return render(request, 'image.html', {"image": image})
 
 
 def user_list(request):

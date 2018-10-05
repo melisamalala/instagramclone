@@ -20,6 +20,9 @@
     <div class="card border-secondary"><a href="{% url 'image' image.id %}">
         <img src="{{image.image.url}}" data-target="#imageModal{{image.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage"
           size="100px200"></a>
+      <p>{{image.comments}}</p>
+      <p>Posted by{{ image.user}}</p>
+
     </div>
     {% endfor %}
   </div>

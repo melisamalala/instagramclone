@@ -10,17 +10,17 @@
   {% endif %} {% block styles %} {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/baseimages.css' %}">
   <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet"> {% endblock %}
-  <script>
-    UPLOADCARE_PUBLIC_KEY = '3a093d5b5e93b5c4cde5';
-  </script>
 </head>
 
 <body>
   {% include "navbar.html" %} {% block content %}
-  <h1 class='text-center'> Images for Today </h1> {%endblock%} {% block scripts %}
+  <h1 class='text-center'> Images </h1> {%endblock%}
+  {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.min.js" charset="utf-8"></script> {% bootstrap_javascript
-  %} {% endblock %}
+
+
+
+  {% bootstrap_javascript %} {% endblock %}
 </body>
 
 </html>

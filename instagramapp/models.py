@@ -5,24 +5,60 @@ from django.contrib.auth.models import User
 import datetime as dt
 
 class Profile(models.Model):
-    username = models.CharField(max_length=20)
-    email = models.CharField(max_length=140)
-    password = models.CharField(max_length=100)
-    phone_number = models.IntegerField(max_length=100, null=True)
-    avatar=models.ImageField(upload_to='picture/')
+    class Meta:
+        db_table = 'profile'
+
+    bio = models.TextField(max_length=200, null=True, blank=True, default="bio")
+    avatar = models.CharField(max_length=255, default="https://imgur.com/jVr43h8.png")
+    user=models.OneToOneField(User, on_delete=models.CASCADE, blank=True )
+    followers = models.ManyToManyField(User, related_name="followers", blank=True)
+    following = models.ManyToManyField(User, related_name="following", blank=True)
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+
+    def follow_user(self, follower):
+        return self.following.add(follower)
+
+    def unfollow_user(self, to_unfollow):
+        return self.following.remove(to_unfollow)
+
+    def is_following(self, checkuser):
+        return checkuser in self.following.all()
+
+    def get_number_of_followers(self):
+        if self.followers.count():
+            return self.followers.count()
+        else:
+            return 0
+
+    def get_number_of_following(self):
+        if self.following.count():
+            return self.following.count()
+        else:
+            return 0
+
+    @classmethod
+    def search_users(cls, name):
+        profiles = cls.objects.filter(user__username__icontains=name)
+        return profiles
+
+    def __str__(self):
+        return self.user.username
 
 
 class Location(models.Model):
     name = models.CharField(max_length=30)
 
-    def __str__(self):
-        return self.name
 
     def save_location(self):
         self.save()
 
-    # def delete_location(self):
-    #     self.delete()
+    def delete_location(self):
+        self.delete()
 
     def __str__(self):
         return self.name
@@ -40,16 +76,16 @@ class tags(models.Model):
     def delete_tags(self):
         self.delete()
 
-    def __str__(self):
-        return self.name
-
 
 class Image(models.Model):
     image=models.ImageField(upload_to='picture/')
     name = models.CharField(max_length=40)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     description=models.TextField()
     location=models.ForeignKey(Location, null=True)
     tags=models.ManyToManyField(tags, blank=True)
+    likes=models.IntegerField(null=True)
+    comments= models.TextField(blank=True)
 
 
     def __str__(self):
@@ -88,3 +124,29 @@ class Image(models.Model):
         pictures=cls.objects.filter(id=id).update(id=id)
         return pictures
 
+    @classmethod
+    def update_description(cls, id):
+        pictures = cls.objects.filter(id=id).update(id=id)
+        return pictures
+
+class Followers(models.Model):
+    '''
+    followers
+    '''
+    user = models.CharField(max_length=20, default="")
+    follower = models.CharField(max_length=20, default="")
+
+
+class Review(models.Model):
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+    profile = models.ForeignKey(Profile)
+    pub_date = models.DateTimeField('date published')
+    user_name = models.CharField(max_length=100)
+    comment = models.CharField(max_length=200)
+    rating = models.IntegerField(choices=RATING_CHOICES)
