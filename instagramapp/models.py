@@ -10,7 +10,7 @@ class Profile(models.Model):
 
     bio = models.TextField(max_length=200, null=True, blank=True, default="bio")
     profilepic = models.ImageField(upload_to='picture/', null=True, blank=True)
-    user=models.OneToOneField(User, on_delete=models.CASCADE, blank=True )
+    user=models.ForeignKey(User, on_delete=models.CASCADE, blank=True )
     followers = models.ManyToManyField(User, related_name="followers", blank=True)
     following = models.ManyToManyField(User, related_name="following", blank=True)
 
@@ -42,8 +42,8 @@ class Profile(models.Model):
             return 0
 
     @classmethod
-    def search_users(cls, name):
-        profiles = cls.objects.filter(user__username__icontains=name)
+    def search_users(cls, search_term):
+        profiles = cls.objects.filter(user__username__icontains=search_term)
         return profiles
 
     def __str__(self):

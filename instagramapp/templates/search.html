@@ -2,14 +2,19 @@
 <div class="container">
 
   <div class="row">
-    {% if pictures%}
-    <h2 style="font-family: 'Kodchasan', sans-serif;color:white;"> Here are images of your search term: {{message}}</h2>
+    {% if profiles%}
+    <h2 style="font-family: 'Kodchasan', sans-serif;color:white;"> Here are profiles of your search term: {{message}}</h2>
     {% else %}
-    <h2 style="font-family: 'Kodchasan', sans-serif;color:white;"> It appears that there are 0 images for your search term
+    <h2 style="font-family: 'Kodchasan', sans-serif;color:white;"> It appears that there are 0 profiles for your search term
       {{message}}, please try again. </h2>
     {% endif %}
 
   </div>
+
+  hi
+  {% for profile in profiles %}
+  <p> {{profile.user.username}}</p>>
+  {% endfor %}
 
   <div class="row">
 

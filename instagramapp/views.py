@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Image,Location,tags
+from .models import Image,Location,tags, Profile
 from django.http  import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -73,9 +73,9 @@ def search_image(request):
             message = "You haven't searched for any image"
             return render(request, 'search.html', {"message": message})
 
+
+
 #         Viewing a single picture
-
-
 
 def user_list(request):
     user_list = User.objects.all()
@@ -99,3 +99,27 @@ def edit_profile(request):
     return render(request, 'registration/edit_profile.html', {"form": form})
 
 
+# @login_required(login_url='/accounts/login/')
+# def profile_page(request):
+#     current_user = request.user
+#
+#     context = {'user_list': user_list}
+#
+#
+#     return render=(request, 'registration/user_imagelist.html', context)
+
+
+
+def search_users(request):
+
+    # search for a user by their username
+    if 'user' in request.GET and request.GET["user"]:
+        search_term = request.GET.get("user")
+        searched_users = Profile.search_users(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html', {"message": message, "profiles": searched_users})
+
+    else:
+        message = "You haven't searched for any person"
+        return render(request, 'search.html', {"message": message})
