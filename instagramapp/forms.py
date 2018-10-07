@@ -12,10 +12,7 @@ class NewImageForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = [ 'rating', 'comment']
-        widgets = {
-            'comment': Textarea(attrs={'cols': 40, 'rows': 15}),
-        }
+        fields = '__all__'
 
 class UpdatebioForm(forms.ModelForm):
     class Meta:

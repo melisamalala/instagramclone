@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
-from .models import Image,Location,tags, Profile
-from django.http  import HttpResponse, Http404
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Image,Location,tags, Profile, Review
+from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
@@ -117,3 +117,19 @@ def search_users(request):
     else:
         message = "You haven't searched for any person"
         return render(request, 'search.html', {"message": message})
+
+
+@login_required(login_url='/accounts/login/')
+def add_review(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = current_user
+            comment.save()
+        return redirect('homePage')
+
+    else:
+        form = NewImageForm()
+    return render(request, 'image.html', {"form": form})

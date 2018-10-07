@@ -10,7 +10,8 @@ urlpatterns=[
     url(r'^users/', views.user_list, name = 'user_list'),
     url(r'^new/image$', views.new_image, name='new_image'),
     url(r'^edit/profile$', views.edit_profile, name='edit_profile'),
-    url(r'^profile/(?P<username>[0-9]+)$', views.individual_profile_page, name='individual_profile_page')
+    url(r'^profile/(?P<username>[0-9]+)$', views.individual_profile_page, name='individual_profile_page'),
+    url(r'^image/(?P<image_id>[0-9]+)/add_review/$', views.add_review, name='add_review'),
 ]
 
 if settings.DEBUG:
