@@ -140,3 +140,14 @@ def add_review(request, image_id):
         form =  ReviewForm()
 
     return render(request, 'comment.html', {'image': image, 'form': form})
+
+
+@login_required(login_url='/accounts/login/')
+def myprofile(request, username = None):
+
+    if not username:
+        username = request.user.username
+    # images by user id
+    images = Image.objects.filter(user_id=username)
+
+    return render(request, 'myprofile.html', locals())

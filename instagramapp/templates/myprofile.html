@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load utils %}
+{% block content %}
+<div class="row userbody">
+    <div id="userdetails" class="row col-12 mb-2">
+        <div class="col-sm-4">
+            <img src="{{username.profile.profilepic.url}}" width="152" height="152" class="rounded-circle border userimage">
+        </div>
+        <div class="col-sm-8">
+            <div style="margin-bottom: 20px;">
+                <h3 style="vertical-align: middle">{{username.username}}</h3>
+                <a href="{%  url 'edit' %}">
+                    <button class="editbtn">
+                        <span class="edittext">Edit Profile</span>
+                    </button>
+                </a>
+                <button style="display: contents" data-toggle="modal" data-target="#logoutmodal">
+                    <span class="instaglyph settings"></span>
+                </button>
+            </div>
+            <div style="margin-bottom: 11px;">
+                <span class="info"><strong>{{ username.profile.image.count }}</strong> posts</span>
+
+            </div>
+            <div>
+                <strong>{{ user_object.profile.user }}</strong>
+            </div>
+            <div><span>{{ user_object.profile.bio }}</span></div>
+        </div>
+    </div>
+    <ul class="nav" id="my" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" href="#posts" data-toggle="tab" role="tab" aria-controls="posts" aria-selected="true">
+            Posts
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#saved" data-toggle="tab" role="tab" aria-controls="saved" aria-selected="false">
+            Saved
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#liked" data-toggle="tab" role="tab" aria-controls="liked" aria-selected="false">
+            Liked
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content row col-12" id="myContent">
+      <div class="tab-pane fade show active" id="posts" role="tabpanel">
+
+
+  <div class="card-columns">
+
+
+
+    {% for image in images %}
+
+
+    <div class="card border-secondary"><a href="{% url 'image' image.id %}">
+        <img src="{{image.image.url}}" class="img-fluid" id="eachimage"
+          size="100px200"></a>
+ <p> Caption : {{ image.description}}</p>
+      <p>Posted by : {{ image.user}}</p>
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+      </div>
+
+
+      <div class="modal fade" id="logoutmodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modalhold modal-content">
+                <div class="modalcontain">
+                    <a class="modaloption button" href="/accounts/logout">
+                       Log out
+                    </a>
+                    <a class="modaloption button" data-dismiss="modal">
+                        Cancel
+                    </a>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
