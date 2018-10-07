@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% load bootstrap4 %}{% block content %}
 <link href="https://fonts.googleapis.com/css?family=Charmonman|Dancing+Script|Kodchasan|Spirax|Abril+Fatface" rel="stylesheet">
 
 <div class="container">
@@ -9,6 +9,7 @@
 
   </div>
 </div>
+
 
 <div class="container">
 
@@ -24,6 +25,17 @@
     </div>
     {% endfor %}
   </div>
+</div>
+
+<div class="container-fluid">
+
+  <form  action="{%url 'homePage'%}" method="post">
+    {%csrf_token%}
+
+    {% bootstrap_form letterForm layout='inline' %}
+    <input type="submit" value="Subscribe To Instagram ">
+  </form>
+
 </div>
 
 

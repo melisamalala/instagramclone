@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Image,Location,tags, Profile, Review
+from .models import Image,Location,tags, Profile, Review, NewsLetterRecipients
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from .forms import NewImageForm, UpdatebioForm, ReviewForm
+from .email import send_welcome_email
+from .forms import NewsLetterForm
 
 # Views
 tags = tags.objects.all()
@@ -29,9 +31,23 @@ def home_images(request):
     else:
         pictures = Image.objects.all()
 
+    form = NewsLetterForm
+
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST or None)
+        if form.is_valid():
+            name = form.cleaned_data['your_name']
+            email = form.cleaned_data['email']
+
+            recipient = NewsLetterRecipients(name=name, email=email)
+            recipient.save()
+            send_welcome_email(name, email)
+
+            HttpResponseRedirect('home_images')
+
     return render(request, 'index.html', {'locations':locations,
                                           'tags': tags,
-                                          'pictures':pictures})
+                                          'pictures':pictures, 'letterForm':form})
 
 def image(request, id):
     try:
@@ -151,3 +167,19 @@ def myprofile(request, username = None):
     images = Image.objects.filter(user_id=username)
 
     return render(request, 'myprofile.html', locals())
+
+
+# def email(request):
+#     if request.method == 'POST':
+#         form = NewsLetterForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['your_name']
+#             email = form.cleaned_data['email']
+#
+#             recipient = NewsLetterRecipients(name = name,email =email)
+#             recipient.save()
+#             send_welcome_email(name,email)
+#
+#             HttpResponseRedirect('news_today')
+#             #.................
+#     return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})

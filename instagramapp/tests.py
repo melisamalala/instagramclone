@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 # Create your tests here.
-from .models import Location, tags, Image
+from .models import Location, tags, Image, Review, Followers
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 class LocationTestClass(TestCase):
@@ -73,5 +73,38 @@ class ImageTestClass(TestCase):
     def test_delete_image(self):
         Image.delete_image_by_id(self.test_image.id)
         self.assertEqual(len(Image.objects.all()), 0)
+
+
+
+class Review(TestCase):
+
+
+    def setUp(self):
+        self.test_review = Review(name = 'Nairobi')
+        self.test_review.save()
+
+    #Testing instance
+
+    def test_instance(self):
+
+        self.assertTrue(isinstance(self.test_location, Location))
+
+    #Testing Save method
+
+    def test_save_method(self):
+        locations = Location.objects.all()
+        self.assertTrue(len(locations)>0)
+
+    # Tear down method
+    def tearDown(self):
+        Location.objects.all().delete()
+
+        # Testing delete method
+
+    def test_delete_location(self):
+        self.test_location.delete()
+        self.assertEqual(len(Location.objects.all()), 0)
+
+
 
 
