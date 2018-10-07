@@ -137,11 +137,9 @@ class Followers(models.Model):
 
 
 class Review(models.Model):
-    profile = models.ForeignKey(Profile)
-    image=models.ForeignKey(Image, null=True, blank=True)
-    pub_date = models.DateTimeField('date published')
-    user_name = models.CharField(max_length=100)
-    comment = models.CharField(max_length=200)
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE, related_name='user')
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="review")
+    comment = models.TextField()
 
     def save_comment(self):
         self.save()

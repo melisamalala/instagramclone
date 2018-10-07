@@ -12,7 +12,7 @@ class NewImageForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = '__all__'
+        fields = ('comment',)
 
 class UpdatebioForm(forms.ModelForm):
     class Meta:

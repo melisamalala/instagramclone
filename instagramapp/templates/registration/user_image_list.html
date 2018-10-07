@@ -3,15 +3,28 @@
 {% load staticfiles %}
 {% block content %}
 
-<h1> Your Profile Page </h1>
-
-<h2> Showing Images by {{ user.id }}</h2>
+<h1> Profile Page </h1>
 
 
-{% for image in images %}
+<div class="container">
+
+  <div class="card-columns">
+
+
+
+    {% for image in images %}
+
+
     <div class="card border-secondary"><a href="{% url 'image' image.id %}">
-        <img src="{{image.image.url}}"size="100px200"></a>
-        {%endfor%}
+        <img src="{{image.image.url}}" class="img-fluid" id="eachimage"
+          size="100px200"></a>
+ <p> Caption : {{ image.description}}</p>
+      <p>Posted by : {{ image.user}}</p>
 
     </div>
+    {% endfor %}
+  </div>
+</div>
+
+
 {% endblock %}

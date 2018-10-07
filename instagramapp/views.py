@@ -119,17 +119,24 @@ def search_users(request):
         return render(request, 'search.html', {"message": message})
 
 
-@login_required(login_url='/accounts/login/')
-def add_review(request):
+@login_required
+def add_review(request, image_id):
+    image = get_object_or_404(Image, pk=image_id)
     current_user = request.user
+
     if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES)
+        form = ReviewForm(request.POST)
         if form.is_valid():
-            comment = form.save(commit=False)
-            comment.user = current_user
-            comment.save()
-        return redirect('homePage')
+
+            comment = form.save(commit = False)
+
+            review = Review()
+            review.image = image
+            review.user = current_user
+            review.comment = comment
+            review.save()
 
     else:
-        form = NewImageForm()
-    return render(request, 'image.html', {"form": form})
+        form =  ReviewForm()
+
+    return render(request, 'comment.html', {'image': image, 'form': form})

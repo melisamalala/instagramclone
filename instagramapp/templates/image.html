@@ -48,22 +48,6 @@
 
 <h3>Add your review</h3>
 
-{{form.media}}
-
-  <div class="card mx-auto" style="max-width:50rem; margin-top:50px;">
-  <form  action="{%url 'add_review' %}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-
-    {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
-  </form>
-  </div>
-   {% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  {% bootstrap_javascript %}
-  {% endblock %}
-</div>
 
 <!--<div class="container">-->
 
@@ -137,5 +121,4 @@
 
   <!--}-->
 <!--</script>-->
-
 {% endblock %}
