@@ -87,7 +87,6 @@ class Image(models.Model):
     likes=models.IntegerField(null=True)
     comments= models.TextField(blank=True)
 
-
     def __str__(self):
         return self.name
 
