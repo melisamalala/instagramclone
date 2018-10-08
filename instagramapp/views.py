@@ -125,7 +125,6 @@ def add_review(request, image_id):
     image = get_object_or_404(Image, pk=image_id)
     current_user = request.user
 
-
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -155,8 +154,6 @@ def myprofile(request, username = None):
 
     return render(request, 'myprofile.html', locals())
 
-
-
 # Search for an image
 def search_image(request):
 
@@ -171,3 +168,13 @@ def search_image(request):
         else:
             message = "You haven't searched for any image"
             return render(request, 'search.html', {"message": message})
+
+
+@login_required(login_url='/accounts/login/')
+def individual_profile_page(request, username=None):
+    if not username:
+        username = request.user.username
+    # images by user id
+    images = Image.objects.filter(user_id=username)
+
+    return render (request, 'registration/user_image_list.html', {'images':images, 'username': username})

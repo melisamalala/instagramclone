@@ -11,10 +11,18 @@
 
   </div>
 
-  hi
+  <h1><strong> These are the user profiles found </strong></h1>
+
   {% for profile in profiles %}
-  <p> {{profile.user.username}}</p>>
+  <p><a href="{% url 'individual_profile_page' user.id %}"> {{profile.user.username}}</a></p>
   {% endfor %}
+
+
+  {% for profile in profiles %}
+  <p> {{profile.user.username}}</p>
+  {% endfor %}
+
+
 
   <div class="row">
 
