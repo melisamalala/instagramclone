@@ -12,30 +12,30 @@
     <div class="col-sm-6 col-md-6">
       {% if user.is_authenticated %}
 
-      <li>
+      <li style="font-family: 'Oswald', sans-serif;">
         <a href="{%url 'edit_profile'%}">Update Profile</a>
       </li>
-      <li>
+
+      <li style="font-family: 'Oswald', sans-serif;">
         <a href="{% url 'individual_profile_page' user.id %}">My Profile</a>
       </li>
-                   <li>
+                   <li style="font-family: 'Oswald', sans-serif;">
                     <a href="{%url 'new_image'%}">Upload</a>
                   </li>
-      <li>
+      <li style="font-family: 'Oswald', sans-serif;">
         <a href="/accounts/password/change">Change Password</a>
       </li>
 
-      <li>
+      <li style="font-family: 'Oswald', sans-serif;">
         <a href="/logout">Logout</a>
       </li>
 
-
       {% else %}
-      <li>
+      <li style="font-family: 'Oswald', sans-serif;">
         <a class='btn btn-default' href="/accounts/login">Login</a>
       </li>
 
-      <li>
+      <li style="font-family: 'Oswald', sans-serif;">
         <a class='btn btn-default' href="/accounts/register">Register</a>
       </li>
 

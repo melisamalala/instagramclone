@@ -75,11 +75,9 @@ def image(request, id):
     else:
         form = ReviewForm()
 
-        reviews = Review.get(id)
-
         # return HttpResponseRedirect(reverse('image', args=(image.id,)))
 
-    return render(request, 'image.html', {"image": image, 'form':form, 'reviews':reviews})
+    return render(request, 'image.html', {"image": image, 'form':form})
 
 @login_required(login_url='/accounts/login/')
 def new_image(request):

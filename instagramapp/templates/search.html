@@ -2,7 +2,7 @@
 <div class="container">
 
   <div class="row">
-    {% if profiles%}
+    {% if profiles %}
     <h2 style="font-family: 'Kodchasan', sans-serif;color:white;"> Here are profiles of your search term: {{message}}</h2>
     {% else %}
     <h2 style="font-family: 'Kodchasan', sans-serif;color:white;"> It appears that there are 0 profiles for your search term
@@ -11,16 +11,12 @@
 
   </div>
 
-  <h1><strong> These are the user profiles found </strong></h1>
+  <h1 style="font-family: 'Oswald', sans-serif;"><strong> These are the user profiles found </strong></h1>
 
   {% for profile in profiles %}
-  <p><a href="{% url 'individual_profile_page' profile.user.id %}"> {{profile.user.username}}</a></p>
+  <p style="font-family: 'Oswald', sans-serif;"><a href="{% url 'individual_profile_page' profile.user.id %}"> {{profile.user.username}}</a></p>
   {% endfor %}
 
-
-  {% for profile in profiles %}
-  <p> {{profile.user.username}}</p>
-  {% endfor %}
 
 
 

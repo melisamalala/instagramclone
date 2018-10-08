@@ -3,12 +3,13 @@
 
 <div class="container">
 
-  <div class="jumbotron text-center" style="background-color:white;">
+  <div class="jumbotron text-center mb-0" style="background-color:white;">
 
     <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:blue;font-size:70px;">Instagram</h1>
 
   </div>
 </div>
+
 
 
 <div class="container">
@@ -19,24 +20,21 @@
     <div class="card border-secondary"><a href="{% url 'image' image.id %}">
         <img src="{{image.image.url}}" data-target="#imageModal{{image.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage"
           size="100px200"></a>
- <p> Caption : {{ image.description}}</p>
-      <p>Posted by : {{ image.user}}</p>
+ <p style="font-family: 'Oswald', sans-serif;"> Caption : {{ image.description}}</p>
+      <p style="font-family: 'Oswald', sans-serif;">Posted by : {{ image.user}}</p>
 
     </div>
     {% endfor %}
   </div>
 </div>
-
-<div class="container-fluid">
+<div class="jumbotron text-center mt-0" style="background-color:white;">
 
   <form  action="{%url 'homePage'%}" method="post">
     {%csrf_token%}
 
-    {% bootstrap_form letterForm layout='inline' %}
+    {% bootstrap_form letterForm  %}
     <input type="submit" value="Subscribe To Instagram ">
   </form>
 
 </div>
-
-
 {% endblock %}

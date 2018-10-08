@@ -16,33 +16,33 @@
 <div class="card mb-3" style="width:40rem;;">
   <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap" class="img-fluid" size="100px200">
   <div class="card-body">
-    <h5 class="card-title"><strong>Name Of Image:</strong>
+    <h5 class="card-title" style="font-family: 'Oswald', sans-serif;"><strong>Name Of Image:</strong>
       <br>
       {{image.name}}</h5>
-    <p class="card-text"><strong>Location:</strong>
+    <p class="card-text" style="font-family: 'Oswald', sans-serif;"><strong>Location:</strong>
       <br>
       {{image.location}}</p>
-    <p class="card-text"><strong>Caption:</strong>
+    <p class="card-text" style="font-family: 'Oswald', sans-serif;"><strong>Caption:</strong>
       <br>
       {{image.description}}</p>
-    <p class="card-text"><small class="text-muted">Posted by {{image.user}}</small></p>
+    <p class="card-text" style="font-family: 'Oswald', sans-serif;"><small class="text-muted">Posted by {{image.user}}</small></p>
   </div>
 
   <div class="card border-secondary">
      <div class="card-header">
-     <h5>Image Comments</h5>
+     <h5 style="font-family: 'Oswald', sans-serif;">Image Comments</h5>
        </div>
 
 
      <div class="card-body text-primary">
 
 
-     <p>{{image.comments}}</p>
+     <p style="font-family: 'Oswald', sans-serif;">{{image.comments}}</p>
 
 
        {% for comment in comment %}
 
-       <p> {{ review.comment }}</p>
+       <p style="font-family: 'Oswald', sans-serif;"> {{ review.comment }}</p>
 
        {% endfor%}
 
@@ -54,7 +54,7 @@
 
 
 <div class="container mt-2 mx-auto p-5" style="background-color:#ffffff; border: 1px solid #e6e6e6;">
-  <h3>Add your comment</h3>
+  <h3 style="font-family: 'Oswald', sans-serif;">Add your comment</h3>
   <hr>
   <form  method="post">
     {%csrf_token%} {% bootstrap_form form %}
