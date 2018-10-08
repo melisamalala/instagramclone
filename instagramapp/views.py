@@ -33,6 +33,7 @@ def home_images(request):
 
     form = NewsLetterForm
 
+
     if request.method == 'POST':
         form = NewsLetterForm(request.POST or None)
         if form.is_valid():
@@ -56,7 +57,26 @@ def image(request, id):
     except DoesNotExist:
         raise Http404()
 
-    return render(request, 'image.html', {"image": image})
+    current_user = request.user
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            comment = form.cleaned_data['comment']
+
+            review = Review()
+            review.image = image
+            review.user = current_user
+            review.comment = comment
+            review.save()
+
+    else:
+        form = ReviewForm()
+
+
+        # return HttpResponseRedirect(reverse('image', args=(image.id,)))
+
+    return render(request, 'image.html', {"image": image, 'form':form})
 
 @login_required(login_url='/accounts/login/')
 def new_image(request):
@@ -120,30 +140,6 @@ def search_users(request):
         return render(request, 'search.html', {"message": message})
 
 
-@login_required
-def add_review(request, image_id):
-    image = get_object_or_404(Image, pk=image_id)
-    current_user = request.user
-
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            comment = form.cleaned_data['comment']
-
-            review = Review()
-            review.image = image
-            review.user = current_user
-            review.comment = comment
-            review.save()
-
-    else:
-        form = ReviewForm()
-
-        return HttpResponseRedirect(reverse('image', args=(image.id,)))
-
-    return render(request, 'image.html', {'image': image, 'form': form})
-
-
 @login_required(login_url='/accounts/login/')
 def myprofile(request, username = None):
 
@@ -171,17 +167,23 @@ def search_image(request):
 
 
 @login_required(login_url='/accounts/login/')
-def individual_profile_page(request, username=None):
+def individual_profile_page(request, username):
+    print(username)
     if not username:
         username = request.user.username
     # images by user id
     images = Image.objects.filter(user_id=username)
-
-    user = User.objects.get(username=username)
-    print('username')
+    user = request.user
     profile = Profile.objects.get(user=user)
+    userf = User.objects.get(pk=username)
+    if userf:
+        print('user found')
+        profile = Profile.objects.get(user=userf)
+    else:
+        print('No suchuser')
+
 
     return render (request, 'registration/user_image_list.html', {'images':images,
+                                                                  'profile':profile,
                                                                   'user':user,
-                                                                  'profile': profile,
                                                                   'username': username})

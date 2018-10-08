@@ -3,18 +3,16 @@
 {% load staticfiles %}
 {% block content %}
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="background-color:white;">
     <h1> Your Profile Page </h1>
-     <img src="{{profile.profilepic.url}}" class="thumbnail" id="eachimage1"
-          size="20px20"></a>
+     <img src="{{profile.profilepic.url}}" class="img-thumbnail" id="eachimage1" style="height:100px;width:100px;"></a>
     <p>{{profile.bio}}</p>
+    <button class="btn btn-lg btn-success"
+    ><a href=" {%url 'edit_profile'%}">Edit Profile</a></button>
     </div>
 
-
 <div class="container">
-
   <div class="card-columns">
-
     {% for image in images %}
 
     <div class="card border-secondary"><a href="{% url 'image' image.id %}">

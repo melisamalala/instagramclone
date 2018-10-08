@@ -10,7 +10,6 @@ class NewImageForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
-    image = forms.IntegerField()
     class Meta:
 
         model = Review

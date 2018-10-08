@@ -34,10 +34,19 @@
      <div class="card-header">
      <h5>Image Comments</h5>
        </div>
+
+
      <div class="card-body text-primary">
 
 
      <p>{{image.comments}}</p>
+
+
+       {% for comment in image.comment.all %}
+
+       <p> {{ review.comment }}</p>
+
+       {% endfor%}
        <!--who posted the review-->
        <!--<p>Posted by : {{ image.user}}</p>-->
      </div>

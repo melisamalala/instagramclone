@@ -10,7 +10,7 @@ class Profile(models.Model):
 
     bio = models.TextField(max_length=200, null=True, blank=True, default="bio")
     profilepic = models.ImageField(upload_to='picture/', null=True, blank=True)
-    user=models.ForeignKey(User, on_delete=models.CASCADE, blank=True, related_name="profile")
+    user=models.OneToOneField(User, on_delete=models.CASCADE, blank=True, related_name="profile")
     followers = models.ManyToManyField(User, related_name="followers", blank=True)
     following = models.ManyToManyField(User, related_name="following", blank=True)
 
