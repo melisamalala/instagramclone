@@ -51,6 +51,8 @@ def home_images(request):
                                           'pictures':pictures, 'letterForm':form})
 
 def image(request, id):
+
+
     try:
         image = Image.objects.get(pk = id)
 
@@ -73,10 +75,11 @@ def image(request, id):
     else:
         form = ReviewForm()
 
+        reviews = Review.get(id)
 
         # return HttpResponseRedirect(reverse('image', args=(image.id,)))
 
-    return render(request, 'image.html', {"image": image, 'form':form})
+    return render(request, 'image.html', {"image": image, 'form':form, 'reviews':reviews})
 
 @login_required(login_url='/accounts/login/')
 def new_image(request):
