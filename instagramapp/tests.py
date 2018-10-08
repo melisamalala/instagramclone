@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 # Create your tests here.
-from .models import Location, tags, Image, Review, Followers
+from .models import Location, tags, Image, Review, Followers, User, Profile
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 class LocationTestClass(TestCase):
@@ -52,9 +52,6 @@ class ImageTestClass(TestCase):
                                 location=self.nairobi,
                                 )
 
-
-        # self.test_image.location.add(self.nairobi)
-        # self.test_image.tags.add(self.funny)
         self.test_image.save()
 
     def test_save_method(self):
@@ -78,33 +75,39 @@ class ImageTestClass(TestCase):
 
 class Review(TestCase):
 
-
     def setUp(self):
-        self.test_review = Review(name = 'Nairobi')
+
+        self.melissa = User.objects.create(username="melissa")
+        self.picture = Image.objects.create(image='image1',
+                                            user=self.melissa)
+        self.comment = Review.objects.create(comment = 'nicephoto')
+
+        self.test_review = Review.objects.create(user=self.melissa,
+                                                 image=self.picture,
+                                                 comment='nice photo')
         self.test_review.save()
 
     #Testing instance
 
     def test_instance(self):
 
-        self.assertTrue(isinstance(self.test_location, Location))
+        self.assertTrue(isinstance(self.test_reviews, Review))
 
     #Testing Save method
 
     def test_save_method(self):
-        locations = Location.objects.all()
-        self.assertTrue(len(locations)>0)
+        reviews = Review.objects.all()
+        self.assertTrue(len(reviews)>0)
+
+    def test_save_review(self):
+        self.assertEqual(len(Review.objects.all()), 1)
 
     # Tear down method
     def tearDown(self):
-        Location.objects.all().delete()
+        Review.objects.all().delete()
 
         # Testing delete method
 
-    def test_delete_location(self):
-        self.test_location.delete()
-        self.assertEqual(len(Location.objects.all()), 0)
-
-
-
-
+    def test_delete_review(self):
+        self.test_review.delete()
+        self.assertEqual(len(Review.objects.all()), 0)

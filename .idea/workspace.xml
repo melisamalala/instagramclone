@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="522ad82d-0c72-4485-a172-3d9f71f30bbd" name="Default Changelist" comment="" />
+    <list default="true" id="522ad82d-0c72-4485-a172-3d9f71f30bbd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/instagramapp/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/instagramapp/tests.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +30,7 @@
           <entry key="js" value="2" />
           <entry key="md" value="10" />
           <entry key="png" value="1" />
-          <entry key="py" value="124" />
+          <entry key="py" value="126" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
@@ -40,7 +42,7 @@
           <entry key="JavaScript" value="2" />
           <entry key="Markdown" value="10" />
           <entry key="PLAIN_TEXT" value="29" />
-          <entry key="Python" value="124" />
+          <entry key="Python" value="126" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -50,7 +52,7 @@
           <entry key="env" value="22" />
           <entry key="html" value="2719" />
           <entry key="md" value="32" />
-          <entry key="py" value="3316" />
+          <entry key="py" value="3715" />
           <entry key="txt" value="25" />
         </counts>
       </usages-collector>
@@ -60,7 +62,7 @@
           <entry key="HTML" value="2719" />
           <entry key="Markdown" value="32" />
           <entry key="PLAIN_TEXT" value="63" />
-          <entry key="Python" value="3316" />
+          <entry key="Python" value="3715" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -74,10 +76,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instagramapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-113">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="221">
+              <caret line="169" selection-start-line="169" selection-end-line="169" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/instagramapp/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="49">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+                <marker date="1538980547586" expanded="true" signature="1954:2995" ph="..." />
               </folding>
             </state>
           </provider>
@@ -88,39 +103,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instagramapp/templates/registration/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-200">
-              <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/instagramapp/templates/registration/registration_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="811">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#11;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -158,13 +140,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instagramapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
+            <state relative-caret-position="79">
+              <caret line="139" column="53" lean-forward="true" selection-start-line="139" selection-start-column="53" selection-end-line="139" selection-end-column="53" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/instagramapp/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+                <marker date="1538979356108" expanded="true" signature="151:152" ph="..." />
+                <marker date="1538979356108" expanded="true" signature="371:376" ph="..." />
               </folding>
             </state>
           </provider>
@@ -248,14 +244,14 @@
         <option value="$PROJECT_DIR$/instagramapp/templates/navbar.html" />
         <option value="$PROJECT_DIR$/instagramapp/templates/myprofile.html" />
         <option value="$PROJECT_DIR$/instagramapp/urls.py" />
-        <option value="$PROJECT_DIR$/instagramapp/tests.py" />
-        <option value="$PROJECT_DIR$/instagramapp/forms.py" />
         <option value="$PROJECT_DIR$/instagramapp/templates/registration/registration_form.html" />
         <option value="$PROJECT_DIR$/instagramapp/models.py" />
         <option value="$PROJECT_DIR$/instagramproject/settings.py" />
         <option value="$PROJECT_DIR$/instagramapp/email.py" />
-        <option value="$PROJECT_DIR$/instagramapp/views.py" />
         <option value="$PROJECT_DIR$/instagramapp/templates/index.html" />
+        <option value="$PROJECT_DIR$/instagramapp/forms.py" />
+        <option value="$PROJECT_DIR$/instagramapp/views.py" />
+        <option value="$PROJECT_DIR$/instagramapp/tests.py" />
       </list>
     </option>
   </component>
@@ -363,14 +359,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="144" y="79" width="1579" height="662" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Favorites" sideWeight="0.2132964" side_tool="true" visible="true" weight="0.21052632" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7867036" visible="true" weight="0.21052632" />
+      <window_info id="Favorites" sideWeight="0.6" side_tool="true" visible="true" weight="0.21052632" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4" visible="true" weight="0.21052632" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" sideWeight="0.49935815" visible="true" weight="0.36666667" />
+      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.49935815" visible="true" weight="0.80701756" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.5006418" side_tool="true" weight="0.22456141" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32807016" />
@@ -675,29 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instagramapp/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="82" column="37" lean-forward="true" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <marker date="1538937851525" expanded="true" signature="2040:2667" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/instagramapp/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-            <marker date="1538938281252" expanded="true" signature="151:152" ph="..." />
-            <marker date="1538938281252" expanded="true" signature="370:375" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instagramapp/templates/registration/registration_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="811">
@@ -761,16 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instagramapp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instagramapp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -792,12 +754,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/instagramapp/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+            <marker date="1538979356108" expanded="true" signature="151:152" ph="..." />
+            <marker date="1538979356108" expanded="true" signature="371:376" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instagramapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/instagramapp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
+        <state relative-caret-position="79">
+          <caret line="139" column="53" lean-forward="true" selection-start-line="139" selection-start-column="53" selection-end-line="139" selection-end-column="53" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instagramapp/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1538980547586" expanded="true" signature="1954:2995" ph="..." />
           </folding>
         </state>
       </provider>
