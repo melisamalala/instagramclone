@@ -73,21 +73,6 @@ def new_image(request):
         form = NewImageForm()
     return render(request, 'registration/new_image.html', {"form": form})
 
-# Search for an image
-def search_image(request):
-
-        # search for an image by the description of the image
-        if 'image' in request.GET and request.GET["image"]:
-            search_term = request.GET.get("image")
-            searched_images = Image.search_image(search_term)
-            message = f"{search_term}"
-
-            return render(request, 'search.html', {"message": message, "pictures": searched_images})
-
-        else:
-            message = "You haven't searched for any image"
-            return render(request, 'search.html', {"message": message})
-
 # Viewing a single picture
 
 def user_list(request):
@@ -140,11 +125,11 @@ def add_review(request, image_id):
     image = get_object_or_404(Image, pk=image_id)
     current_user = request.user
 
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-
-            comment = form.save(commit = False)
+            comment = form.cleaned_data['comment']
 
             review = Review()
             review.image = image
@@ -153,9 +138,11 @@ def add_review(request, image_id):
             review.save()
 
     else:
-        form =  ReviewForm()
+        form = ReviewForm()
 
-    return render(request, 'comment.html', {'image': image, 'form': form})
+        return HttpResponseRedirect(reverse('image', args=(image.id,)))
+
+    return render(request, 'image.html', {'image': image, 'form': form})
 
 
 @login_required(login_url='/accounts/login/')
@@ -167,3 +154,20 @@ def myprofile(request, username = None):
     images = Image.objects.filter(user_id=username)
 
     return render(request, 'myprofile.html', locals())
+
+
+
+# Search for an image
+def search_image(request):
+
+        # search for an image by the description of the image
+        if 'image' in request.GET and request.GET["image"]:
+            search_term = request.GET.get("image")
+            searched_images = Image.search_image(search_term)
+            message = f"{search_term}"
+
+            return render(request, 'search.html', {"message": message, "pictures": searched_images})
+
+        else:
+            message = "You haven't searched for any image"
+            return render(request, 'search.html', {"message": message})

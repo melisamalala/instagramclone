@@ -48,6 +48,15 @@
 
 <h3>Add your review</h3>
 
+<div class="container mt-2 mx-auto p-5" style="background-color:#ffffff; border: 1px solid #e6e6e6;">
+  <hr>
+  <form  method="post">
+    {%csrf_token%} {% bootstrap_form form %}
+      <input type="submit" class="btn btn-primary" value="Post">
+  </form>
+  <hr>
+</div>
+
 
 <!--<div class="container">-->
 
