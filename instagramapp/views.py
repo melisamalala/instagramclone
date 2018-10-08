@@ -177,4 +177,11 @@ def individual_profile_page(request, username=None):
     # images by user id
     images = Image.objects.filter(user_id=username)
 
-    return render (request, 'registration/user_image_list.html', {'images':images, 'username': username})
+    user = User.objects.get(username=username)
+    print('username')
+    profile = Profile.objects.get(user=user)
+
+    return render (request, 'registration/user_image_list.html', {'images':images,
+                                                                  'user':user,
+                                                                  'profile': profile,
+                                                                  'username': username})
