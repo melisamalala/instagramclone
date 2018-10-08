@@ -11,6 +11,7 @@ class NewImageForm(forms.ModelForm):
 
 class ReviewForm(forms.ModelForm):
     class Meta:
+
         model = Review
         fields = ('comment',)
 
