@@ -16,7 +16,7 @@
         <a href="{%url 'edit_profile'%}">Update Profile</a>
       </li>
       <li>
-        <a href="{%url 'myprofile'%}">My Profile</a>
+        <a href="{% url 'individual_profile_page' user.id %}">My Profile</a>
       </li>
                    <li>
                     <a href="{%url 'new_image'%}">Upload</a>
