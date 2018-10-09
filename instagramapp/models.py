@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 import datetime as dt
 
+
 class Profile(models.Model):
     class Meta:
         db_table = 'profile'

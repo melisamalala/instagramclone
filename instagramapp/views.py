@@ -200,3 +200,4 @@ def individual_profile_page(request, username):
                                                                   'user':user,
                                                                   'username': username})
 
+
