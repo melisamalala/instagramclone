@@ -40,9 +40,9 @@
      <p style="font-family: 'Oswald', sans-serif;">{{image.comments}}</p>
 
 
-       {% for comment in comment %}
+       {% for comment in comments %}
 
-       <p style="font-family: 'Oswald', sans-serif;"> {{ review.comment }}</p>
+       <p style="font-family: 'Oswald', sans-serif;"> {{ comment }}</p>
 
        {% endfor%}
 
@@ -56,11 +56,34 @@
 <div class="container mt-2 mx-auto p-5" style="background-color:#ffffff; border: 1px solid #e6e6e6;">
   <h3 style="font-family: 'Oswald', sans-serif;">Add your comment</h3>
   <hr>
-  <form  method="post">
+  <form action=""  method="post">
     {%csrf_token%} {% bootstrap_form form %}
       <input type="submit" class="btn btn-primary" value="Post">
   </form>
   <hr>
 </div>
+<div class="container">
+    <div class="col-md-12">
+      <div class="footer text-center">
+        <ul id="footer1">
+          <li>ABOUT US</li>
+          <li>SUPPORT</li>
+          <li>PRESS</li>
+          <li>API</li>
+          <li>JOBS</li>
+          <li>PRIVACY</li>
+          <li>TERMS</li>
+          <li>DIRECTORY</li>
+          <li>PROFILES</li>
+          <li>HASHTAGS</li>
+          <li>LANGUAGE</li>
+          <br>
 
+          <li style="font-size:10px;"> <strong>© 2018 MELISSA MALALA</strong></li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
 {% endblock %}

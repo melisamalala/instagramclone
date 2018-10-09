@@ -144,6 +144,10 @@ class Review(models.Model):
     def save_comment(self):
         self.save()
 
+    def get_comment(self, id):
+        comments = Review.objects.filter(image_id =id)
+        return comments
+
     def __str__(self):
         return self.comment
 

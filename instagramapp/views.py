@@ -52,7 +52,6 @@ def home_images(request):
 
 def image(request, id):
 
-
     try:
         image = Image.objects.get(pk = id)
 
@@ -60,6 +59,7 @@ def image(request, id):
         raise Http404()
 
     current_user = request.user
+    comments = Review.get_comment(Review, id)
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -77,7 +77,7 @@ def image(request, id):
 
         # return HttpResponseRedirect(reverse('image', args=(image.id,)))
 
-    return render(request, 'image.html', {"image": image, 'form':form})
+    return render(request, 'image.html', {"image": image, 'form':form, 'comments':comments})
 
 @login_required(login_url='/accounts/login/')
 def new_image(request):
