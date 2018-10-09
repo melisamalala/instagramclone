@@ -84,7 +84,7 @@ class Image(models.Model):
     description=models.TextField()
     location=models.ForeignKey(Location, null=True)
     tags=models.ManyToManyField(tags, blank=True)
-    likes=models.IntegerField(null=True)
+    likes = models.IntegerField(default=0)
     comments= models.TextField(blank=True)
 
     def __str__(self):
@@ -154,3 +154,17 @@ class Review(models.Model):
 class NewsLetterRecipients(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
+
+class Like(models.Model):
+    user = models.ForeignKey(User)
+    image = models.ForeignKey(Image)
+    value = models.IntegerField(default=True, null=True, blank=True)
+
+    def save_like(self):
+        self.save()
+
+    def __str__(self):
+        return str(self.user) + ':' + str(self.image) + ':' + str(self.value)
+
+    class Meta:
+        unique_together = ("user", "image", "value")

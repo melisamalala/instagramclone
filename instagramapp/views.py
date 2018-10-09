@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Image,Location,tags, Profile, Review, NewsLetterRecipients
+from .models import Image,Location,tags, Profile, Review, NewsLetterRecipients, Like
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -61,6 +61,13 @@ def image(request, id):
     current_user = request.user
     comments = Review.get_comment(Review, id)
 
+    #
+    # p = Image.objects.get(image_id=id)
+    # onelike = Like.objects.get_or_create(user=request.user, image_id=id)
+    # likes = p.like_set.all().count()
+
+
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -75,9 +82,13 @@ def image(request, id):
     else:
         form = ReviewForm()
 
+
         # return HttpResponseRedirect(reverse('image', args=(image.id,)))
 
-    return render(request, 'image.html', {"image": image, 'form':form, 'comments':comments})
+    return render(request, 'image.html', {"image": image,
+                                          'form':form,
+                                          'comments':comments,
+                                          })
 
 @login_required(login_url='/accounts/login/')
 def new_image(request):
@@ -188,3 +199,4 @@ def individual_profile_page(request, username):
                                                                   'profile':profile,
                                                                   'user':user,
                                                                   'username': username})
+
