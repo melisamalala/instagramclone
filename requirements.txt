@@ -5,7 +5,7 @@ chardet==3.0.4
 config==0.3.9
 confusable-homoglyphs==3.2.0
 dj-database-url==0.5.0
-Django==1.11
+Django==1.11.23
 django-bootstrap-form==3.4
 django-bootstrap3==11.0.0
 django-bootstrap4==0.0.7
